@@ -13,10 +13,6 @@ from portfolio import Portfolio, Holding, get_price, get_historical_price
 from lab1 import portfolio_value
 from datetime import date
 
-def username():
-  # Get started by registering a username
-  return "username"
-
 def portfolio_returns(portfolio: Portfolio):
   # Calculate the value for the potfolio at its open date
   opening_value = 1

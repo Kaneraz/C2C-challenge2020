@@ -14,9 +14,7 @@ https://www.w3schools.com/python/ref_string_split.asp
 from portfolio import Portfolio, Holding, get_price
 from datetime import date
 
-filepath = 'portfolio.csv'
-
-def parse_portfolio():
+def parse_portfolio(filepath):
   portfolio = Portfolio(date(2020,1,2))
   with open(filepath) as fp:
     lines = fp.readlines()

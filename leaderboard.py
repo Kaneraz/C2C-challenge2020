@@ -7,6 +7,7 @@ pip.
 import requests
 from portfolio import Portfolio, Holding, get_price, get_historical_price
 from lab1 import portfolio_value
+from lab3 import username
 from datetime import date
 
 filepath = 'portfolio.csv'
@@ -111,9 +112,18 @@ def submit_adjusted_returns(adjusted_returns):
   if round(adjusted_returns, 2) != validation_adjusted_returns:
     raise Exception("Adjusted returns don't line up.")
   print("{:.2f}% adjusted returns is still great!")
+
+def submit_custom_portfolio(portfolio):
+  opening_value = portfolio_opening_value(portfolio)
+  if(opening_value > 10000):
+    raise Exception("Opening value should be no more than $10,000")
+  custom_returns = portfolio_returns(portfolio)
+  print("Your returns are {:.2f}%!".format(custom_returns))
+  print("Your ending balance is ${:,.2f}".format(portfolio_value(portfolio)))
+  submit_leaderboard(username(),3,str(portfolio_value(portfolio)))
   
 
 if __name__ == "__main__":
   """A simple test of the api"""
-  print(submitLeaderboard("Brian", 1, "bbbbbbb"))
+  print(submit_leaderboard("Brian", 1, "bbbbbbb"))
 
